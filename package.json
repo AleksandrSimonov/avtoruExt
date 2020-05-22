@@ -1,0 +1,14 @@
+{
+  "name": "avtoru_ext",
+  "version": "1.0.0",
+  "description": "расширение google chrome для компиляции объявления сайта avto.ru в видео ролик",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "SimonOFF",
+  "license": "ISC",
+  "dependencies": {
+
+  }
+}
