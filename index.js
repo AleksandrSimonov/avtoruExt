@@ -21,32 +21,32 @@ const getAdDiscriptonScript =
 				 Array.from(discriptions).map(function(discription) {
 					 return discription.innerText;
 				 });
+		discriptionsArray.unshift(document.getElementsByClassName("CardSidebarActions__title")[0].innerText);
+		discriptionsArray.unshift("Модель авто");
 		return discriptionsArray;
 	})();`;
 
 	chrome.tabs.executeScript({code: getPicureUrlsScript}, function(result) {
 		var picturesUrlsArray = result[0];
-		var discription;
-		var sope =this;
 		chrome.tabs.executeScript({code: getAdDiscriptonScript}, function(result) {
-			sope.discription = result[0];
+		var	discription = result[0];
 
 			let request = {
-				"imgUrls": picturesUrlsArray,
-				"discriptions": discription
+				"imageUrls": picturesUrlsArray,
+				"descriptions": discription
 			};
 		
 			$.ajax({
 				type: "POST",
-				url: "https://diploma.ru/GetVideoFromAd",
+				url: "https://localhost:5000/api/create_video",
 				contentType: "application/json; charset=utf-8",
 				dataType: "json",
 				data: JSON.stringify(request),
 				success:  function(response) {
-				
+				debugger;
 						$.each(response,function(Id, obj)
 						{
-								//show the video
+							debugger;	//show the video
 						}
 						)
 				}
